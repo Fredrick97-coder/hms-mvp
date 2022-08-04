@@ -1,0 +1,171 @@
+$formbgcolor: #f5f5f5;
+$bgFaintedColor: rgba(152, 151, 151, 0.3);
+$primaryTextColor: #fff;
+$secondaryTextColor: #575ce5;
+$tertiaryTextColor: #3a6475;
+$darkTextColor: #000;
+
+//text size
+$xlgText: 3.5rem;
+$lgText: 2.75rem;
+$mdText: 1.875rem;
+$smText: 1.1rem;
+
+//styles for component
+
+.form__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+
+  .form__container {
+    border-radius: 10px;
+    padding: 20px;
+    width: 400px;
+    max-width: 100%;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+
+    .form__title {
+      font-size: $smText;
+      font-weight: 500;
+      text-align: center;
+      margin-bottom: 50px;
+      color: $secondaryTextColor;
+    }
+
+    .form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .input__wrapper {
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      gap: 20px;
+
+      .rounded__icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 50px;
+        min-width: 50px;
+        border-radius: 50%;
+        background-color: $primaryTextColor;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+      }
+
+      .form__input {
+        flex: 1;
+        height: 50px;
+        border-radius: 5px;
+        border: 1px solid $secondaryTextColor;
+        padding: 0 10px;
+        outline: none;
+        transition: all 0.5s ease-in-out;
+        animation: input__animation 0.5s ease-in-out;
+      }
+
+      @keyframes input__animation {
+        from {
+          transform: translateX(100px);
+          opacity: 0;
+        }
+        to {
+          transform: translateX(0px);
+          opacity: 1;
+        }
+      }
+    }
+
+    .btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: $secondaryTextColor;
+      border: none;
+      border-radius: 5px;
+      height: 40px;
+      color: $primaryTextColor;
+      cursor: pointer;
+      box-shadow: 2px 2px 25px -8 / px $secondaryTextColor;
+    }
+  }
+  .form__footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    font-size: $smText;
+    color: $darkTextColor;
+  }
+}
+
+// styles for container
+.login__container__wrapper {
+  position: relative;
+  display: block;
+
+  .svg__icon {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+
+    img {
+      height: 15rem;
+    }
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50px;
+    right: 20px;
+    height: 220px;
+    width: 220px;
+    border-radius: 50%;
+    // background: $secondaryTextColor;
+    background: transparent;
+    transform: rotateX(180deg);
+    box-shadow: 20px 20px 0 0 $secondaryTextColor;
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50px;
+    right: 20px;
+    height: 220px;
+    width: 220px;
+    border-radius: 50%;
+    background: transparent;
+    transform: rotateX(180deg);
+    box-shadow: 20px 20px 0 0 $secondaryTextColor;
+    z-index: -1;
+    filter: drop-shadow(-20px -20px 0px rgba(0, 0, 0, 0.5));
+  }
+
+  .typical__wrapper {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $bgFaintedColor;
+  }
+
+  .typical {
+    display: block;
+    font-size: $smText;
+    font-weight: 500;
+    color: $secondaryTextColor;
+  }
+}

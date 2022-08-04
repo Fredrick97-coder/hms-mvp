@@ -1,0 +1,76 @@
+$bgFaintedColor: rgba(152, 151, 151, 0.3);
+$primaryTextColor: #fff;
+$secondaryTextColor: #575ce5;
+$tertiaryTextColor: #3a6475;
+
+//text size
+$xlgText: 3.5rem;
+$lgText: 2.75rem;
+$mdText: 1.875rem;
+$smText: 1.1rem;
+
+.auth__wrapper {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+
+  .left__side {
+    position: relative;
+    width: 50%;
+    background-image: url('../../asset/img/auth.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    .overlay {
+      position: absolute;
+      background: rgba(0, 0, 0, 0.5);
+      height: 100%;
+      width: 100%;
+    }
+    .content {
+      position: absolute;
+      z-index: 999;
+
+      .logo {
+        font-size: $xlgText;
+        font-weight: 600;
+        color: $primaryTextColor;
+        margin: 20px 30px;
+      }
+      .info__wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: calc(100vh - 100px);
+
+        .info {
+          background-color: $bgFaintedColor;
+          box-shadow: 7px 7px 10px rgba(0, 0, 0, 0.123);
+          padding: 20px;
+          margin: 30px;
+          border-radius: 50px;
+
+          h3 {
+            background-color: #fff;
+            box-shadow: 7px 7px 10px #575ce5;
+            text-align: center;
+            color: $secondaryTextColor;
+            font-size: $lgText;
+            text-transform: uppercase;
+          }
+          p {
+            color: $primaryTextColor;
+            font-size: $smText;
+          }
+        }
+      }
+    }
+  }
+  .right__side {
+    width: 50%;
+  }
+}
