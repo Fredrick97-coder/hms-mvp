@@ -28,11 +28,12 @@ export const LoginComponent: React.FC = () => {
         <h1 className="form__title">Don't worry, you are at the right place</h1>
         <Formik
           initialValues={initialValues}
-          validate={(values) => LoginValidation(values)}
           onSubmit={(values, actions) => {
             console.log({ values, actions });
             alert(JSON.stringify(values, null, 2));
+            actions.setSubmitting(false);
           }}
+          validationSchema={LoginValidation}
         >
           {({
             values,
@@ -100,7 +101,7 @@ export const LoginComponent: React.FC = () => {
                 </div>
               )}
               {isNext === true ? (
-                <button type="submit" className="btn">
+                <button type="submit" className="btn" disabled={isSubmitting}>
                   Submit
                 </button>
               ) : (
