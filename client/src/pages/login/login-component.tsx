@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Formik } from 'formik';
 import { TextField } from '../../components';
 import { LoginValidation } from '../../helpers/form-validation';
+import { RotateSpinner } from 'react-spinners-kit';
 import { MdEmail } from 'react-icons/md';
 import { FaUserLock } from 'react-icons/fa';
 import './login.scss';
@@ -18,9 +19,9 @@ export const LoginComponent: React.FC = () => {
     password: '',
   };
 
-  const [emailActive, setEmailActive] = useState(false);
-  const [passwordActive, setPasswordActive] = useState(false);
-  const [isNext, setIsNext] = useState(false);
+  const [emailActive, setEmailActive] = useState<boolean>(false);
+  const [passwordActive, setPasswordActive] = useState<boolean>(false);
+  const [isNext, setIsNext] = useState<boolean>(false);
 
   return (
     <div className="form__wrapper">
@@ -83,7 +84,7 @@ export const LoginComponent: React.FC = () => {
                     className="rounded__icon"
                     onClick={() => setPasswordActive((prev) => !prev)}
                   >
-                    <FaUserLock size={25} color="#575ce5" />
+                    <FaUserLock size={30} color="#575ce5" />
                   </div>
                   {passwordActive && (
                     <TextField
@@ -102,7 +103,35 @@ export const LoginComponent: React.FC = () => {
               )}
               {isNext === true ? (
                 <button type="submit" className="btn" disabled={isSubmitting}>
-                  Submit
+                  {isSubmitting ? (
+                    <RotateSpinner size={20} color="white" />
+                  ) : (
+                    <span
+                      style={{
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        gap: 2,
+                      }}
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z"
+                        />
+                      </svg>
+                      <span>Login</span>
+                    </span>
+                  )}
                 </button>
               ) : (
                 <div className="btn" onClick={() => setIsNext((prev) => !prev)}>
@@ -112,7 +141,7 @@ export const LoginComponent: React.FC = () => {
               <div className="form__footer">
                 <p>
                   Don't have an account?
-                  <Link to="/signup"> Signup</Link>
+                  <Link to="/register"> Signup</Link>
                 </p>
               </div>
             </form>
