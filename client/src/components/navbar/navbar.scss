@@ -1,0 +1,180 @@
+$formbgcolor: #f5f5f5;
+$bgFaintedColor: rgba(152, 151, 151, 0.3);
+$primaryTextColor: #fff;
+$secondaryTextColor: #575ce5;
+$tertiaryTextColor: #3a6475;
+$darkTextColor: #000;
+
+//text size
+$xlgText: 3.5rem;
+$lgText: 2.75rem;
+$mdText: 1.875rem;
+$smText: 1.1rem;
+$xsmText: 0.85rem;
+
+@mixin FlexDisplay($justify) {
+  display: flex;
+  flex-direction: row;
+  justify-content: $justify;
+  align-items: center;
+}
+
+.navbar__wrapper {
+  @include FlexDisplay(space-between);
+  padding: 0.7rem 5rem;
+  background-color: #fff;
+  border-bottom: 1px solid #e6e6e6;
+
+  @media (max-width: 830px) {
+    @include FlexDisplay(space-between);
+    padding: 0.7rem 1rem;
+
+    .logo {
+      display: none;
+    }
+
+    .search__wrapper {
+      width: 100%;
+      border: none !important;
+
+      .search__btn {
+        button {
+          width: 100%;
+        }
+      }
+    }
+
+    .right__wrapper {
+      display: none !important;
+    }
+  }
+
+  .logo {
+    h2 {
+      color: $secondaryTextColor;
+    }
+  }
+
+  .search__wrapper {
+    position: relative;
+    background-color: $primaryTextColor;
+    padding: 10px 13px;
+    border-radius: 50px;
+    border: 1px solid #8888;
+    box-shadow: 0 2px 10px -6px rgba(87, 84, 84, 0.7);
+
+    .search__btn {
+      position: relative;
+      @include FlexDisplay(space-between);
+      gap: 0px 20px;
+
+      button {
+        position: relative;
+        border: none;
+        background: none;
+        cursor: pointer;
+
+        &:nth-child(1)::before {
+          content: '';
+          position: absolute;
+          top: -5px;
+          right: -10px;
+          height: 25px;
+          width: 1px;
+          background: rgba(191, 188, 188, 0.5);
+        }
+
+        &:nth-child(2)::before {
+          content: '';
+          position: absolute;
+          top: -5px;
+          right: -10px;
+          height: 25px;
+          width: 1px;
+          background: rgba(191, 188, 188, 0.5);
+        }
+      }
+
+      .search__icon {
+        min-height: 35px;
+        min-width: 35px;
+        background-color: $secondaryTextColor;
+        border-radius: 50%;
+        @include FlexDisplay(center);
+        margin-left: 10px;
+      }
+    }
+  }
+
+  .right__wrapper {
+    @include FlexDisplay(space-between);
+    gap: 0px 10px;
+
+    a {
+      font-size: $xsmText;
+      text-decoration: none;
+      color: #000;
+      font-weight: 500;
+    }
+
+    .right__btn {
+      position: relative;
+      @include FlexDisplay(space-between);
+      height: 40px;
+      width: 70px;
+      gap: 0px 4px;
+      border-radius: 50px;
+      border: 1px solid rgba(207, 204, 204, 0.517);
+      padding: 0px 5px;
+      background: none;
+      cursor: pointer;
+
+      .navbar__img {
+        height: 28px;
+        width: 28px;
+        border-radius: 50%;
+      }
+
+      .notify {
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 999;
+        height: 15px;
+        width: 15px;
+        border-radius: 50%;
+        @include FlexDisplay(center);
+
+        span {
+          position: absolute;
+          top: 0;
+          right: 2px;
+          z-index: 39;
+        }
+
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 20;
+          height: 18px;
+          width: 18px;
+          border-radius: 50%;
+          background: red;
+        }
+
+        &::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -1px;
+          height: 20px;
+          width: 20px;
+          border-radius: 50%;
+          background: #fff;
+        }
+      }
+    }
+  }
+}

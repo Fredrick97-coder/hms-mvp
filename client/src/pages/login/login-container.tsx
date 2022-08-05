@@ -10,7 +10,9 @@ function LoginContainer() {
         <img src={svg} alt="" />
       </div>
       <div className="typical__wrapper">
-        <p className="typical">Good Health Management &copy; copyright 2022</p>
+        <p className="typical">
+          Good Health Management &copy; copyright {new Date().getFullYear()}
+        </p>
       </div>
     </div>
   );
