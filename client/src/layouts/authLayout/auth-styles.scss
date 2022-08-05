@@ -16,6 +16,20 @@ $smText: 1.1rem;
   width: 100vw;
   overflow: hidden;
 
+  @media (max-width: 870px) {
+    justify-content: center;
+
+    .left__side {
+      display: none;
+    }
+
+    .right__side {
+      flex: 1;
+      width: 100%;
+      // transition: all 0.3s ease-in-out;
+    }
+  }
+
   .left__side {
     position: relative;
     width: 50%;

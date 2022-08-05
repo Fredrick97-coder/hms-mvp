@@ -17,6 +17,7 @@ export const LoginComponent: React.FC = () => {
   const initialValues: ILoginFormValues = {
     email: '',
     password: '',
+    
   };
 
   const [emailActive, setEmailActive] = useState<boolean>(false);
